@@ -1,0 +1,33 @@
+{
+  "name": "kebs-mysql-cli",
+  "version": "1.0.0",
+  "description": "A CLI to handle database operations across multiple tenant databases",
+  "main": "./bin/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Amal Anush",
+  "license": "ISC",
+  "bin": {
+    "kebs": "./bin/index.js"
+  },
+  "keywords": [
+    "kebs_sql_cli"
+  ],
+  "dependencies": {
+    "@vitalets/google-translate-api": "^7.0.0",
+    "boxen": "^4.2.0",
+    "chalk": "^4.1.2",
+    "cli-logo": "^0.3.0",
+    "inquirer": "^8.2.0",
+    "mongodb": "^4.4.1",
+    "mysql": "^2.18.1",
+    "ora": "^5.4.1",
+    "path": "^0.12.7",
+    "underscore": "^1.13.2",
+    "util": "^0.12.4",
+    "winston": "^3.6.0",
+    "yargs": "^17.3.1",
+    "yargs-interactive": "^3.0.0"
+  }
+}

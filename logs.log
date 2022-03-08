@@ -1,0 +1,24 @@
+info: Mar-08-2022 16:19:55: 	------------------------------------------------------------------
+info: Mar-08-2022 16:19:55: 	drop table kaar.temp1
+info: Mar-08-2022 16:19:55: 	{"fieldCount":0,"affectedRows":0,"insertId":0,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+info: Mar-08-2022 16:19:55: 	------------------------------------------------------------------
+info: Mar-08-2022 16:19:56: 	------------------------------------------------------------------
+info: Mar-08-2022 16:19:56: 	drop table ktglobal.temp1
+info: Mar-08-2022 16:19:56: 	{"fieldCount":0,"affectedRows":0,"insertId":0,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+info: Mar-08-2022 16:19:56: 	------------------------------------------------------------------
+info: Mar-08-2022 16:19:56: 	------------------------------------------------------------------
+info: Mar-08-2022 16:19:56: 	drop table congruent_qual.temp1
+info: Mar-08-2022 16:19:56: 	{"fieldCount":0,"affectedRows":0,"insertId":0,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+info: Mar-08-2022 16:19:56: 	------------------------------------------------------------------
+info: Mar-08-2022 16:19:57: 	------------------------------------------------------------------
+info: Mar-08-2022 16:19:57: 	drop table congruent.temp1
+info: Mar-08-2022 16:19:57: 	{"fieldCount":0,"affectedRows":0,"insertId":0,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+info: Mar-08-2022 16:19:57: 	------------------------------------------------------------------
+info: Mar-08-2022 16:19:57: 	------------------------------------------------------------------
+info: Mar-08-2022 16:19:57: 	drop table congruentqual_preprd.temp1
+info: Mar-08-2022 16:19:57: 	{"fieldCount":0,"affectedRows":0,"insertId":0,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+info: Mar-08-2022 16:19:57: 	------------------------------------------------------------------
+info: Mar-08-2022 16:19:58: 	------------------------------------------------------------------
+info: Mar-08-2022 16:19:58: 	drop table decision_minds_demo.temp1
+info: Mar-08-2022 16:19:58: 	{"fieldCount":0,"affectedRows":0,"insertId":0,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+info: Mar-08-2022 16:19:58: 	------------------------------------------------------------------

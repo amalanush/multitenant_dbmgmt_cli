@@ -1,0 +1,1 @@
+mongodb+srv://kebs:kebs123@dev.pkaby.mongodb.net/test?retryWrites=true&w=majority
