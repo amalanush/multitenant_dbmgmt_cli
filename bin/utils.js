@@ -1,5 +1,5 @@
 var mysql = require("mysql");
-const ora = require('ora');
+const ora = require("ora");
 var fs = require("fs");
 const { MongoClient } = require("mongodb");
 const _ = require("underscore");
@@ -25,32 +25,44 @@ module.exports = {
   showHelp: showHelp,
   connectToDb: connectToDb,
   execute: execute,
-  executeCustom:executeCustom
+  executeCustom: executeCustom,
 };
 
 function showHelp() {
-  var logoCli = require('cli-logo'),
-  logoConfig = {
-      "name": "KEBS Mysql CLI",
-      "description": "A CLI for performing database operations across multiple tenant databases",
-      "version": "1.0.0"
-  };
+  var logoCli = require("cli-logo"),
+    logoConfig = {
+      name: "KEBS Mysql CLI",
+      description:
+        "A CLI for performing database operations across multiple tenant databases",
+      version: "1.0.0",
+    };
 
-logoCli.print(logoConfig);
-
-
-  console.log("\commands:\r");
-  console.log("\tconfig\t\t      " + "config database connections" + "\t\t\t" + "stdin\r");
-  console.log("\texec\t\t      " + "execute database operations" + "\t\t\t" + "stdin\r");
-  console.log("\t\t--all\t\t      " + "execute for all tenant databases." + "\t\t\t" + "[boolean]\r");
-  console.log("\t\t--custom\t      " + "for custom tenant databases." + "\t\t\t" + "[boolean]\r");
+  logoCli.print(logoConfig);
+  console.log("commands:\r");
+  console.log(
+    "\tconfig\t\t      " + "config database connections" + "\t\t\t" + "stdin\r"
+  );
+  console.log(
+    "\texec\t\t      " + "execute database operations" + "\t\t\t" + "stdin\r"
+  );
+  console.log(
+    "\t\t--all\t\t      " +
+      "execute for all tenant databases." +
+      "\t\t\t" +
+      "[boolean]\r"
+  );
+  console.log(
+    "\t\t--custom\t      " +
+      "for custom tenant databases." +
+      "\t\t\t" +
+      "[boolean]\r"
+  );
   console.log("\tview-logs\t     " + "view execution logs" + "\t\t\t" + "\n");
   console.log("\nOptions:\r");
   console.log(
     "\t--version\t      " + "Show version number." + "\t\t" + "[boolean]\r"
   );
   console.log("\t--help\t\t      " + "Show help." + "\t\t\t" + "[boolean]\n");
-
 }
 
 function connectToDb(host, username, psw, mongoUrl, baseDb) {
@@ -75,9 +87,9 @@ function connectToDb(host, username, psw, mongoUrl, baseDb) {
 async function execute(query) {
   try {
     const throbber = ora({
-      text: '',
+      text: "",
       spinner: {
-        frames: ['🐊', '🐢', '🦎', '🐍'],
+        frames: ["🐊", "🐢", "🦎", "🐍"],
         interval: 300, // Optional
       },
     }).start();
@@ -116,7 +128,7 @@ async function execute(query) {
           console.log(
             "executed ",
             query.replace(parsed_content.baseDb, dbs[i]),
-            `progress  ${(i/dbs.length)*100}% `
+            `progress  ${(i / dbs.length) * 100}% `
           );
           logger.info(JSON.stringify(result));
           logger.info(
@@ -135,12 +147,12 @@ async function execute(query) {
   }
 }
 
-async function executeCustom(dbs,query) {
+async function executeCustom(dbs, query) {
   try {
     const throbber = ora({
-      text: '',
+      text: "",
       spinner: {
-        frames: ['🐊', '🐢', '🦎', '🐍'],
+        frames: ["🐊", "🐢", "🦎", "🐍"],
         interval: 300, // Optional
       },
     }).start();
@@ -157,6 +169,21 @@ async function executeCustom(dbs,query) {
       });
       pool = await util.promisify(pool.query).bind(pool);
 
+      let source_result = await pool(query);
+      logger.info(
+        "------------------------------------------------------------------"
+      );
+      logger.info(query);
+      console.log("executed ", query);
+      console.log("*******************************************************************************************************************************************************")
+
+      console.log(JSON.stringify(source_result));
+      console.log("---------------------------------------------------------");
+      logger.info(JSON.stringify(source_result));
+      logger.info(
+        "------------------------------------------------------------------"
+      );
+
       for (let i = 0; i < dbs.length; i++) {
         let result = await pool(query.replace(parsed_content.baseDb, dbs[i]));
         logger.info(
@@ -166,8 +193,15 @@ async function executeCustom(dbs,query) {
         console.log(
           "executed ",
           query.replace(parsed_content.baseDb, dbs[i]),
-          `progress  ${(i/dbs.length)*100}% `
+          `progress  ${(i / dbs.length) * 100}% `
         );
+        console.log("*******************************************************************************************************************************************************")
+
+        console.log(JSON.stringify(result));
+        console.log(
+          "----------------------------------------------------------------------"
+        );
+
         logger.info(JSON.stringify(result));
         logger.info(
           "------------------------------------------------------------------"
