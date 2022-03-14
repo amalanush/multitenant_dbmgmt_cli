@@ -138,27 +138,32 @@ async function execute(query) {
           "-------------------------------------------------------------------------------------------------------------------------------------"
         );
         for (let i = 0; i < dbs.length; i++) {
-          let result = await pool(query.replace(parsed_content.baseDb, dbs[i]));
-          console.log(
-            "-------------------------------------------------------------------------------------------------------------------------------------"
-          );
-          logger.info(
-            "-----------------------------------------------------------------------------------------------------------------------------------"
-          );
-          logger.info(query.replace(parsed_content.baseDb, dbs[i]));
-          console.log(
-            "executed ",
-            query.replace(parsed_content.baseDb, dbs[i]),
-            `progress  ${(i / dbs.length) * 100}% `
-          );
-          console.log(JSON.stringify(result));
-          logger.info(JSON.stringify(result));
-          logger.info(
-            "-------------------------------------------------------------------------------------------------------------------------------------"
-          );
-          console.log(
-            "-------------------------------------------------------------------------------------------------------------------------------------"
-          );
+          if (dbs[i] != parsed_content.baseDb) {
+            let result = await pool(
+              query.replace(parsed_content.baseDb, dbs[i])
+            );
+            console.log(
+              "-------------------------------------------------------------------------------------------------------------------------------------"
+            );
+            logger.info(
+              "-----------------------------------------------------------------------------------------------------------------------------------"
+            );
+            logger.info(query.replace(parsed_content.baseDb, dbs[i]));
+            console.log(
+              "executed ",
+              query.replace(parsed_content.baseDb, dbs[i]),
+              `progress  ${(i / dbs.length) * 100}% `
+            );
+            console.log(JSON.stringify(result));
+            logger.info(JSON.stringify(result));
+            logger.info(
+              "-------------------------------------------------------------------------------------------------------------------------------------"
+            );
+            console.log(
+              "-------------------------------------------------------------------------------------------------------------------------------------"
+            );
+          }
+
           if (i == dbs.length - 1) {
             console.log("Execution success ! 100% \n press ctrl + c to exit");
             throbber.stop();
